@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+* VS Plugins Command Table
+*
+* IDM_VS_MENU_TOOLS         - VS Tools Menu
+*   idToolsMenuGroup        -   Last group
+*     idCodeComMenu         -     Extension Menu
+*       idCodeComMenuGroup  -       Extension Menu Group
+*         idCommentStyleCmd -         Comment Style Command
+*         idBlockCommentCmd -         Block Comment Command
+************************************************************************************************-->
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+  <Extern href="msobtnid.h"/>
+  
+  <Include href="Symbols.vsct"/>
+
+  <!--====================-->
+  <!-- Extension Commands -->
+  <!--====================-->
+  <Commands package="guidCodeComPkg">
+    
+    <!--===============-->
+    <!-- Menu Commands -->
+    <!--===============-->
+    <Buttons>
+      <!--=========================-->
+      <!-- Paragraph Comment Style -->
+      <!--=========================-->
+      <Button guid="guidCodeComCmds" id="idCommentStyleCmd" type="Button">
+        <Icon guid="guidCodeComImgs" id="bmpCommentStyle" />
+        <Strings>
+          <CommandName>Comment Style Selector</CommandName>
+          <ButtonText>Comment Style</ButtonText>
+          <CanonicalName>CodeCommenter.CommentStyle</CanonicalName>
+          <LocCanonicalName>CodeCommenter.CommentStyle</LocCanonicalName>
+          <ToolTipText>Select Comment Style file extension for Code Commenting.</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!--===================-->
+      <!-- Paragraph Comment -->
+      <!--===================-->
+      <Button guid="guidCodeComCmds" id="idBlockCommentCmd" type="Button">
+        <Icon guid="guidCodeComImgs" id="bmpBlockComment" />
+        <Strings>
+          <CommandName>Block Comment</CommandName>
+          <ButtonText>Block Comment</ButtonText>
+          <CanonicalName>CodeCommenter.BlockComment</CanonicalName>
+          <LocCanonicalName>CodeCommenter.BlockComment</LocCanonicalName>
+          <ToolTipText>Converts current line or selection into a bordered comment block using the current Comment Style.</ToolTipText>
+        </Strings>
+      </Button>
+    </Buttons>
+   
+    <Bitmaps>
+      <Bitmap guid="guidCodeComImgs" href="Resources\Images.bmp" usedList="1, 2"/>
+    </Bitmaps>
+
+    <!--====================================-->
+    <!-- Groups contain Menus and Commands. -->
+    <!--====================================-->
+    <Groups>
+      <Group guid="guidCodeComCmds" id="idToolsMenuGroup" />
+      <Group guid="guidCodeComCmds" id="idCodeComMenuGroup" />
+    </Groups>
+    
+    <!--=======================-->
+    <!-- Menus contain Groups. -->
+    <!--=======================-->
+    <Menus>
+      <Menu guid="guidCodeComCmds" id="idCodeComMenu" type="Menu">
+        <Strings>
+          <ButtonText>Code Commenter</ButtonText>
+        </Strings>
+      </Menu>
+    </Menus>
+    
+  </Commands>
+  
+  <!--================================================================-->
+  <!-- Tools menu group at bottom of VS Tools menu holds Plugin Menu. -->
+  <!--================================================================-->
+  <CommandPlacements>
+    <CommandPlacement guid="guidCodeComCmds" id="idToolsMenuGroup" priority="0xFFFF">
+      <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+    </CommandPlacement>
+    
+    <CommandPlacement guid="guidCodeComCmds" id="idCodeComMenu"     priority="0">
+      <Parent guid="guidCodeComCmds" id="idToolsMenuGroup" />
+    </CommandPlacement>
+    
+    <CommandPlacement guid="guidCodeComCmds" id="idCodeComMenuGroup" priority="0">
+      <Parent guid="guidCodeComCmds" id="idCodeComMenu"/>
+    </CommandPlacement>
+    
+    <CommandPlacement guid="guidCodeComCmds" id="idCommentStyleCmd" priority="0">
+      <Parent guid="guidCodeComCmds" id="idCodeComMenuGroup" />
+    </CommandPlacement>
+
+    <CommandPlacement guid="guidCodeComCmds" id="idBlockCommentCmd" priority="0">
+      <Parent guid="guidCodeComCmds" id="idCodeComMenuGroup" />
+    </CommandPlacement>
+  </CommandPlacements>
+  
+  <!--==================================================-->
+  <!-- Shortcut Bindings. Not used because they will    -->
+  <!-- not be assigned if they are already in use.      -->
+  <!-- Bindings are assigned in VSPackage.Initialize(). -->
+  <!--==================================================-->
+  <!--<KeyBindings>
+    <KeyBinding guid="guidCodeComCmds" id="idCommentStyleCmd" editor="GUID_TextEditorFactory" mod1="Control" key1="K" mod2="Control" key2="S" />
+    <KeyBinding guid="guidCodeComCmds" id="idBlockCommentCmd" editor="GUID_TextEditorFactory" mod1="Control" key1="K" mod2="Control" key2="C" />
+  </KeyBindings>-->
+</CommandTable>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+* Symbols linking VSCT Command Table definitions to C# code. See `Symbols.cs`.
+************************************************************************************************-->
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable">
+  <Symbols>
+    <GuidSymbol name="guidCodeComPkg"     value="{2d2d5875-ac6a-4a67-b21d-a21feb8d5fe0}" />
+    <GuidSymbol name="guidCodeComCmds"    value="{ECDB6D40-2F3A-432E-9DB3-C741F25606DF}">
+      <IDSymbol name="idToolsMenuGroup"   value="0x1000" />
+      <IDSymbol name="idCodeComMenu"      value="0x1020" />
+      <IDSymbol name="idCodeComMenuGroup" value="0x1021" />
+      <IDSymbol name="idCommentStyleCmd"  value="0x0101" />
+      <IDSymbol name="idBlockCommentCmd"  value="0x0102" />
+    </GuidSymbol>
+    
+    <GuidSymbol name="guidCodeComImgs"    value="{BBDDE128-899C-4450-94BE-EB35FFD6D1E5}" >
+      <IDSymbol name="bmpBlockComment"    value="1" />
+      <IDSymbol name="bmpCommentStyle"    value="2" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>  
